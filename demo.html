@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Default functionality</title>
+<!--   <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+
+   <style>
+    body{ background: #f1f1f1; padding: 20px; font-family: 'Open Sans', sans-serif;  }
+  #sortable { list-style-type: none; margin: 0; padding: 0;  }
+  #sortable div {  font-size: 1.4em; }
+  #sortable div span { position: absolute; margin-left: -1.3em; }
+  h1{ font-size: 24px; margin:0;     position: relative;
+    top: -12px; }
+  h2{ font-size: 16px; display: inline-block; }
+  ul{ float:right; margin: 0; }
+  ul li{ display: inline-block; }
+  ul li a{ font-size: 14px; color: blue; }
+ 
+
+  .cards{ position: relative; padding-bottom: 30px;     padding-left: 15px;  }
+  .sort_box_part{ background: #fff; padding: 10px; position: relative; border:1px solid transparent; cursor:all-scroll; }
+
+  .cards:before{ content: ""; position: absolute; top: 0; left: -7px; width: 2px; height: 100%;  }
+  
+  .cards:after{     content: "";
+    position: absolute;
+    top: 0;
+    left: -11px;
+    width: 10px;
+    height: 10px;
+    margin-top: -1px;
+     border-radius: 50%; }
+
+
+
+   
+  
+    #sortable .funnel-step-1 .cards:before{ background: #656565; }
+    #sortable .funnel-step-1 .cards:after{ background: #656565; }
+
+    #sortable .funnel-step-2 .cards:before{ background: #6dc98b; }
+    #sortable .funnel-step-2 .cards:after{ background: #6dc98b; }
+ 
+    #sortable .funnel-step-3 .cards:before{ background: #ffaf51; }
+    #sortable .funnel-step-3 .cards:after{ background: #ffaf51; }    
+
+.funnel-step-next .cards:before{ background: none; }
+.funnel-step-next .cards:after{ background: red; }    
+
+
+   
+
+    #sortable .ui-sortable-helper .cards:before{ background:transparent !important;  }
+    #sortable .ui-sortable-helper .cards:after{ background:transparent !important; }
+
+ 
+
+    .flex_box{    background: #f8f8f8;
+    border-radius: 3px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.05);
+    padding: 25px 45px;
+    display: flex;
+   }
+
+ .flex_box ul li{   width: 25%;    border-radius: 3px;     text-align: center; line-height: 150px;
+
+ background-color: rgb(255, 255, 255);
+ box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05); margin:0 22px; }
+
+ .flex_box ul{ display: flex; width: 100%; padding: 0; margin: 0;   }
+ 
+  </style>
+  
+</head>
+<body>
+
+
+<button class="reorder"> Re-order </button> <br/><br/>
+ 
+<div id="sortable">
+
+
+
+  <div class="ui-state-default funnel-step-1"> 
+    
+    <div class="cards">
+       <h1>Landing Page</h1>
+
+       <div class="sort_box_part">
+         
+         <h2>Sales Promotion Templates</h2>
+
+         <ul>
+           <li><a href="#">View |</a></li>
+           <li><a href="#">Edit |</a></li>
+           <li><a href="#">Duplicate |</a></li>
+           <li><a href="#">Delete</a></li>
+         </ul>
+
+       </div>
+
+    </div>
+  
+  </div>
+
+
+
+
+
+
+  <div class="ui-state-default funnel-step-2"> 
+    
+    <div class="cards">
+       <h1>CheckOut</h1>
+
+       <div class="sort_box_part">
+         
+         <h2>CheckOut Templates Promotion</h2>
+
+         <ul>
+           <li><a href="#">View |</a></li>
+           <li><a href="#">Edit |</a></li>
+           <li><a href="#">Duplicate |</a></li>
+           <li><a href="#">Delete</a></li>
+         </ul>
+
+       </div>
+
+    </div>
+  
+  </div>
+
+
+
+<div class="ui-state-default funnel-step-3"> 
+    
+    <div class="cards">
+       <h1>Upsell</h1>
+
+       <div class="sort_box_part">
+         
+         <h2>Upsell Templates Promotion</h2>
+
+         <ul>
+           <li><a href="#">View |</a></li>
+           <li><a href="#">Edit |</a></li>
+           <li><a href="#">Duplicate |</a></li>
+           <li><a href="#">Delete</a></li>
+         </ul>
+
+       </div>
+
+    </div>
+  
+  </div>
+
+
+
+
+  <!-- <div class="ui-state-default"> DIV 2 </div>
+  <div class="ui-state-default"> DIV 3 </div>
+  <div class="ui-state-default"> DIV 4 </div>
+ -->
+</div>
+ 
+
+
+
+
+<div class=" ui-state-default funnel-step-next"> 
+    
+    <div class="cards">
+ 
+       <div class="flex_box">
+         
+ 
+         <ul>
+           <li><a href="#">Landing </a></li>
+           <li><a href="#">Checkout</a></li>
+           <li><a href="#">Upsell </a></li>
+           <li><a href="#">Thank You</a></li>
+         </ul>
+
+       </div>
+
+    </div>
+  
+  </div>
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#sortable" ).sortable();
+    $( "#sortable" ).disableSelection();
+  } );
+  </script>
+
+<script>
+$( "button" ).click(function() {
+//  alert("hello");
+$( ".sort_box_part" ).css( "border", "1px dashed red"  );
+$( ".sort_box_part" ).css( "box-shadow", "0px 0px 11px 0 #c1c0c0" );
+ 
+});
+</script>
+
+<script>
+$( ".ui-sortable-helper" ).onclick(function() {
+ alert("hello");
+$( ".ui-sortable-helper" ).css( "opacity", "0.2"  );
+$( ".sort_box_part" ).css( "box-shadow", "0px 0px 11px 0 #c1c0c0" );
+});
+</script>
+
+
+</body>
+</html>
